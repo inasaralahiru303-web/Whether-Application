@@ -1,6 +1,9 @@
 
-function searchWeather() {
-    const city = document.getElementById("cityInput").value;
+function searchWeather(defaultCity = "") {
+
+    const cityInput = document.getElementById("cityInput");
+
+    const city = cityInput.value.trim() || defaultCity;
 
     if (city.trim() === "") {
         alert("Please enter a city name");
@@ -85,3 +88,7 @@ function searchWeather() {
 
         });
 }
+window.addEventListener("DOMContentLoaded", () => {
+    document.getElementById("cityInput").value = "Panadura";
+    searchWeather("Panadura");
+});
